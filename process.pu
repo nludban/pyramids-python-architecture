@@ -1,0 +1,89 @@
+@startuml
+!include component-skin.pu
+
+component DID
+
+component "System\nComponent\nTree" as SCTree
+
+frame {
+  actor Customer
+  component ".docx/.pdf" as PDF
+}
+
+frame {
+
+  actor "Requirements\nEngineer" as ReqEng
+
+  component SRD
+  component SOS
+  component SYS
+  component SUBSYS
+
+  component "Use Case" as UC
+
+  component SRS
+  component IRS
+
+}
+
+frame {
+  component "Test Plan" as TestPlan
+  actor "Test\nEngineer" as TestEng
+}
+
+frame {
+  component Code
+  component "Unit Test" as UT
+  component SDD
+  component IDD
+  actor "Software\nEngineer" as SwEng
+}
+
+frame {
+  actor Manager
+  component "Time Estimate" as TimeEst
+  component "Cost Estimate" as CostEst
+}
+
+component ICD
+
+
+'Customer <-- PDF
+
+PDF <-- SRD
+SRD <- SOS
+SOS <- SYS
+SYS <- SUBSYS
+
+SCTree <- SUBSYS
+'SCTree <-- SYS
+'SCTree <-- SOS
+
+SUBSYS <-- UC
+
+UC <-- SRS
+UC <-- IRS
+'TestPlan --> UC
+UC <-- TestPlan
+
+SRS <-- UT
+IRS <-- UT
+IRS <-- IDD
+UT <-- Code
+Code <- SDD
+
+
+SRS <-- TimeEst
+IRS <-- TimeEst
+TimeEst <-- CostEst
+
+ICD -- IDD
+
+' Force layouts
+'Customer -[hidden] DID
+SCTree -[hidden]- DID
+DID -[hidden]- TestPlan
+PDF -[hidden]- SCTree
+SRD -[hidden]- ReqEng
+
+@enduml

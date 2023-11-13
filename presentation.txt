@@ -1,0 +1,222 @@
+
+https://sedimental.org/
+    10_myths_of_enterprise_python.html
+        - paypal, ca 2014-12
+    esp.html
+        - "Enterprise Software with Python"
+          O'Reilly lectures
+
+https://www.packtpub.com/
+    application-development/software-architecture-python
+
+https://www.youtube.com/watch?v=DJtef410XaM
+    - PyOhio 2014
+    - Brandon Rhodes
+    - "The Clean Architecture in Python"
+
+https://en.wikipedia.org/
+    wiki/Robert_C._Martin
+https://8thlight.com/blog/uncle-bob/
+    2012/08/13/the-clean-architecture.html
+    2011/09/30/Screaming-Architecture.html
+
+https://en.wikipedia.org/
+    wiki/The_Mythical_Man-Month
+
+http://www.cs.yale.edu/
+    homes/perlis-alan/quotes.html
+    "Epigrams in Programming"
+    ACM SIGPLAN, September 1982
+
+https://en.wikipedia.org/
+
+    wiki/Cohesion_(computer_science)
+    wiki/Coupling_(computer_programming)
+
+    wiki/Separation_of_mechanism_and_policy
+    wiki/Separation_of_concerns
+
+http://www.gnu.org/
+    fun/jokes/pasta.code.html
+
+https://en.wikipedia.org/
+    wiki/Spaghetti_code
+    wiki/Spaghetti_code#Lasagna_code
+    wiki/Spaghetti_code#Ravioli_code
+
+http://www.laputan.org/mud/
+    Big Ball of Mud
+
+https://blog.codinghorror.com/
+    the-big-ball-of-mud-and-other-architectural-disasters/
+
+https://msdn.microsoft.com/
+    en-us/library/dd409437.aspx
+
+https://martinfowler.com/
+    articles/designDead.html
+
+https://en.wikipedia.org/
+    wiki/4+1_architectural_view_model
+    wiki/Category:Unified_Modeling_Language_diagrams
+
+Logical		-- Classes, inheritance, composition
+Development	-- Object hierarchies, connected interfaces
+Physical	-- Software, hardware, networks
+Process		-- Internal activities
+Scenarios	-- [Use Cases]
+
+- PlantUML (sequence diagrams) (http://plantuml.com/)
+- tgif (http://bourbon.usc.edu/tgif/)
+
+https://en.wikipedia.org/
+    wiki/List_of_Unified_Modeling_Language_tools
+
+https://www.google.com/search?q=uml+cheat+sheet
+
+
+https://en.wikipedia.org/
+    wiki/Software_design_pattern
+    - "Gang of Four" book
+    - "Python doesn't need design patterns"
+    - Language features
+    - Please note in comments
+
+https://en.wikipedia.org/
+    wiki/Adapter_pattern
+    - Create an object containing one object
+    - Change method names/parameters
+      - Adapt old class to new interface
+      - Adapt new class to old interface
+    - Useful for refactoring
+
+https://en.wikipedia.org/
+    wiki/Facade_pattern
+    - Create an object containing many objects
+    - Simplified interface
+    - Domain specific API
+    - Divide and conquer
+
+
+https://en.wikipedia.org/
+    wiki/Multitier_architecture
+
+
+https://en.wikipedia.org/
+    wiki/Model-view-viewmodel
+    wiki/Model-view-presenter
+
+
+Dependency Rules
+
+- Pyramid / DAG / Tree
+
+- Parent to children
+  - Facade / encapsulate
+
+- Child to parent
+  - OK within layer
+  - Interface for higher layer
+
+- Minimal peer knowledge
+  - Coordinate via parent
+
+
+Layer Responsibilities
+
+Presentation
+- Provide a Proxy
+- Consumed by other components
+- Consumed via loopback
+
+Application
+- Process
+  - Create Managers, Components
+- Service
+  - Facade for Component
+  - AuthZ and Accounting
+  - Requests handed to Component
+- Component
+  - Create rest of the child objects
+  - Main thread processes requests
+
+Control
+  - Facade for implementation
+  - Coordinate lower pieces
+  - Synchronization / Locking
+
+Data
+  - Implementation details
+  - Unit Tested
+
+
+UML Package = Python namespace
+
+- control/__init__.py
+  - Relative-import public classes:
+    from .topframe import TopFrame
+
+- control.py
+
+- Syntactically valid hacks...
+
+    class data:
+        class TopFrame:
+            pass
+
+
+attrs: Classes Without Boilerplate
+
+http://www.attrs.org/
+
+
+
+lxml - XML and HTML with Python
+
+http://lxml.de/
+
+##
+## xmlutil.py
+##
+
+from contextlib import contextmanager
+
+from lxml import etree
+
+def str_from_etree(node, pretty_print=True):
+    return etree.tostring(node,
+                          pretty_print=pretty_print,
+                          method='xml',         # full document
+                          encoding='unicode')   # str, not bytes.
+
+def etree_from_str(s):
+    e = etree.XML(s)
+    return e
+
+def etree_from_file(fobj):
+    e = etree.parse(fobj)
+    return e
+
+def etree_from_filename(fname):
+    with open(fname, 'b') as f:
+        e = etree_from_file(f)
+    return e
+
+def subelement(p, tag, **attrs):
+    c = etree.SubElement(p, tag, **attrs)
+    return c
+
+@contextmanager
+def subcontext(p, tag, **attrs):
+    c = etree.SubElement(p, tag, **attrs)
+    yield c
+
+
+https://en.wikipedia.org/wiki/Software_crisis
+
+https://en.wikipedia.org/wiki/Anti-pattern
+
+https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
+
+http://www.catb.org/esr/writings/taoup/html/
+

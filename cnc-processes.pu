@@ -1,0 +1,38 @@
+@startuml
+!include component-skin.pu
+
+'title TCP Links
+frame "cd: Processes and TCP Links" {
+
+   together {
+      component "cnc ui" as UI
+      component "cnc mgr" as MGR
+      component "cnc io" as IO
+
+      note right of UI: Presentation Layer:\nUser Interface
+      note right of MGR: Contorl Layer:\nGCode Interpreter
+      note right of IO: Data Layer:\nReal-Time I/O
+   }
+
+   together {
+      component "cnc wdog" as WD
+      note bottom of WD: Safety:\nProcess Monitor and Shutdown
+   }
+
+   WD <-right-> UI
+   WD <-right-> MGR
+   WD <-right-> IO
+
+   UI <-down-> MGR
+   MGR <-down-> IO
+
+/'
+WD -[hidden]> UI
+WD -[hidden]> MGR
+WD -[hidden]> IO
+'/
+
+
+}
+
+@enduml

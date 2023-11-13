@@ -1,0 +1,50 @@
+#######################################################################
+Title Page
+
+***********************************************************************
+Introduction
+
+======================================================================
+Problem Statement
+
+
+
+Websters [wikipedia] defines software architecture as...
+
+College courses
+- coupling and cohesion
+- mythical man-month
+- group projects
+- 
+
+
+Who needs it?
+- Big project = ?
+- revision control in programming contest
+- 2-3 hours (unplug cell phone, close cubicle door)
+
+
+
+***********************************************************************
+
+https://en.wikipedia.org/wiki/Family_tree_of_the_Greek_gods
+
+https://en.wikipedia.org/wiki/Multitier_architecture
+mostly 3-layer
+presentation, application, business, data access
+
+https://www.nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/
+three tier no longer good;
+new big thing = microservices; scalability (ref. mfowler)
+client, delivery, aggregation, services
+
+https://en.wikipedia.org/wiki/4%2B1_architectural_view_model
+4+1 (views & beyond ch 11 - RUP/Kruchten)
+
+https://www.packtpub.com/application-development/software-architecture-python
+
+https://sedimental.org/10_myths_of_enterprise_python.html
+	- paypal, ca 2014-12
+https://sedimental.org/esp.html
+
+#--#

@@ -1,0 +1,21 @@
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam MinClassWidth 100
+skinparam BoxPadding 200
+
+skinparam package<<layout>> {
+  borderColor Transparent
+  backgroundColor Transparent
+  fontColor Transparent
+  stereotypeFontColor Transparent
+}
+
+skinparam component<<layout>> {
+  borderColor Transparent
+  backgroundColor Transparent
+  fontColor Transparent
+  stereotypeFontColor Transparent
+}
+
+'buster keaton our hospitality
+'2001 samjack yellow sub

@@ -1,0 +1,10 @@
+@startuml
+skinparam componentStyle uml2
+
+participant "Box A" as A
+participant "Box B" as B
+
+A->B: Message uno
+B->A: Message dos
+
+@enduml

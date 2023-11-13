@@ -1,0 +1,31 @@
+@startuml
+!include component-skin.pu
+'    scale 1000 width
+'    scale 400 height
+
+'frame "sd: Process Launch" {
+
+   participant "cncui" as UI
+   participant "cncwdog" as WD
+   participant "cncio" as IO
+   participant "cncmgr" as MGR
+
+
+   --> UI: ./cncui.py
+   activate UI
+
+      UI --> WD: fork()
+      activate WD
+
+         WD --> WD: daemonize()
+
+         WD --> MGR: fork()
+         activate MGR
+
+         WD --> IO: fork()
+         activate IO
+
+'}
+
+hide footbox
+@enduml

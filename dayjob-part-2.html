@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- XXX 1024x768 170% -->
+    <!-- XXX Wrap lines ~45 -->
+    <title>Pyramids to Python - Architecture</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="presentation.css" />
+</head>
+<body>
+
+<h1>From the Pyramids to Python</h1>
+<h2>Architecture To Cope With Big Projects</h2>
+
+<pre class="title">
+COhPy Presentation - 2018-05-21
+
+(Day-Job) Presentation - 2019-03-08 (part 1)
+                         2019-03-15 (part 2)
+</pre>
+
+<img src="giza-plateau-pyramids.jpg"
+     style="width: 400px; float: left" />
+<img src="python-powered-w-200x80.png"
+     style="width: 150px; padding-top: 50px" />
+<br style="clear: both" />
+
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Topics Outline (Part 1)</h2>
+
+<pre class="outline">
+Last Week:
+
+- Large projects into smaller projects
+  - Presentation, Application, Control, Data
+  - Components, Subsystems, Systems, SOS
+
+- Reduce knowledge required of other code
+  - Facade design pattern
+  - UML Diagrams
+</pre>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Topics Outline (Part 2)</h2>
+
+<pre class="outline">
+"Process" is <em>not</em> a four letter word.
+- <del>Cost Effective</del> Add Value
+- Productivity
+- Communication
+- Innovation
+- Democratic
+
+Part 1 = less code reading
+Part 2 = <bold>no</bold> code reading
+- Validatation before coding
+</pre>
+
+<p>Diagram: Software Development Process</p>
+<p style="text-align: center">
+    <img src="process.png"
+         style="width: 400px" /></p>
+
+<pre class="outline">
+~20 boxes in 30 minutes?
+
+- Disclaimer
+- More infos
+- Facilitator?
+</pre>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>The Customer</h2>
+
+<pre class="outline">
+Source of the "requirements"
+- Reasonable
+- Ambiguous
+- Conflicting
+- Missing
+- Impossible
+</pre>
+
+<p style="text-align: center">
+    <img src="process-customer.png"
+         style="width: 400px" /></p>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Requirements Engineer - Step 1</h2>
+
+<pre class="outline">
+SRD = System Requirements Document
+- Scraped text from customer doc
+
+System Component Tree
+- Hierarchy of components to be built
+
+SOS = System Of Systems
+SYS = System
+SUBSYS = Sub-System
+- Customer requirements cleanup
+- Define component responsibilities
+</pre>
+
+<p style="text-align: center">
+    <img src="process-srd.png"
+         style="width: 400px" /></p>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Requirements Engineer - Step 2</h2>
+
+<pre class="outline">
+Use Case
+- Story about how the system is used
+    - Characters
+    - Motivation
+    - Plot
+- Illustrated (UML Diagrams)
+
+IRS = Interface Requirements Specification
+- List of API methods and data
+    - external
+    - between subsystems
+
+SRS = Software Requirements Specification
+- List of behaviors
+    - When in a certain state,
+    - and this message is received,
+    - matching these criteria,
+    - what shall happen next.
+
+Software Engineer
+- Review
+- Add estimated effort
+- Revise (optional)
+- Approve (accept)
+</pre>
+
+<p style="text-align: center">
+    <img src="process-uc-reqs.png"
+         style="width: 400px" /></p>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Requirements Specifications</h2>
+
+<pre class="outline">
+Requirements
+- Items in a list
+- Small, simple
+- Good estimates
+    - 2x 30h &gt;&gt; 30x 2h
+- Done or Not Done = %progress
+- Prioritize
+- Share
+- Feature Creep
+
+Specification
+- This exact list of reqs
+</pre>
+
+<p style="text-align: center">
+    <img src="process-manager.png"
+         style="width: 400px" /></p>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Test Engineer</h2>
+
+<pre class="outline">
+System Integration Tests
+- Input: Use Cases (and IRS, SRS)
+- Output: Test Plans
+
+Beyond Developer Testing
+- External, system behavior
+- Experts at breaking things
+
+Other
+- Test Automation Tools
+- Load / Performance Tests
+</pre>
+
+<p style="text-align: center">
+    <img src="process-test.png"
+         style="width: 400px" /></p>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Software Engineer</h2>
+
+<pre class="outline">
+Code &amp; Unit Test
+
+IDD = Interface Design Document
+- One doc per interface
+
+SDD = Software Design Document
+- One section per component
+- UML Diagrams (start with reqs)
+- Additional text
+</pre>
+
+<p style="text-align: center">
+    <img src="process-sweng.png"
+         style="width: 400px" /></p>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Miscellaneous</h2>
+
+<pre class="outline">
+DID = Data Item Description
+- Templates and advice for each artifact
+
+ICD = Interface Control Document
+- Index of all IDDs and owners
+</pre>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>Benefits</h2>
+
+<pre class="outline">
+New System
+- Validate before coding
+
+Maintenance
+- What should happen
+- Identify responsible component(s)
+
+Extend System
+- Or iterative development
+- SDD for reference
+
+Innovative Proposals
+- Communicate ideas
+- Complete design?
+
+New Hires
+- Learn the system
+</pre>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="part slide">
+<h2>The End</h2>
+
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+</body>
+</html>
